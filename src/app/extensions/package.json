@@ -2,9 +2,15 @@
   "name": "hubspot-example-extension",
   "version": "0.1.0",
   "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"node server.js\" \"hs project dev\""
+  },
   "dependencies": {
     "@hubspot/ui-extensions": "latest",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "concurrently": "^6.2.0"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
