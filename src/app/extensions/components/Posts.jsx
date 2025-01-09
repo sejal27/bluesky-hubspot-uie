@@ -43,14 +43,20 @@ export const Posts = ({ handle }) => {
       console.log(responseText);
 
       if (responseText) {
-        const postsData = JSON.parse(responseText).posts;
-        if (postsData.error) {
-          console.error("API Error:", postsData.error);
-          return;
-        }
+        const postsData = JSON.parse(responseText);
+        // Sort posts by postedAt date in descending order (newest first)
+        const sortedPosts = postsData.posts.sort((a, b) => {
+          const dateA = new Date(a.postedAt.replace("Z", ""));
+          const dateB = new Date(b.postedAt.replace("Z", ""));
+          return dateB - dateA;
+        });
+
         setPosts((prevPosts) =>
-          pageNum === 1 ? postsData : [...prevPosts, ...postsData]
+          pageNum === 1 ? sortedPosts : [...prevPosts, ...sortedPosts]
         );
+
+        console.log("Updated Posts:", sortedPosts);
+        console.log("Updated Number of posts:", sortedPosts.length);
       }
     } catch (err) {
       console.error("Error in fetchPostsData:", err);
@@ -90,7 +96,7 @@ export const Posts = ({ handle }) => {
                             {post.replyCount || 0}
                           </Text>
                         </Flex>
-                        <Text color="gray">
+                        <Text color="gray" variant="microcopy">
                           {post.postedAt
                             ? new Date(
                                 post.postedAt.replace("Z", "")
