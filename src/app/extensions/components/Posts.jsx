@@ -22,7 +22,7 @@ export const Posts = ({ handle }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const POSTS_PER_PAGE = 3;
+  const POSTS_PER_PAGE = 5;
 
   useEffect(() => {
     fetchPostsData();
