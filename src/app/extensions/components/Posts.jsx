@@ -107,8 +107,11 @@ export const Posts = ({ handle }) => {
               </Flex>
             ) : (
               <EmptyState
-                title="No posts found"
-                message="This user hasn't posted anything recently"
+                title="No bluesky posts found for this user"
+                flush={true}
+                imageWidth={100}
+                layout="vertical"
+                reverseOrder={true}
               />
             )}
           </PanelSection>
