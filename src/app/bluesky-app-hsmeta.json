@@ -1,0 +1,27 @@
+{
+  "uid": "bluesky-hubspot-app",
+  "type": "app",
+  "config": {
+    "name": "Bluesky HubSpot Integration App",
+    "description": "Get contact's BlueSky profile information on the record page.",
+    "distribution": "marketplace",
+    "auth": {
+      "type": "oauth",
+      "redirectUrls": ["https://bluesky-hubspot-be.vercel.app/api/oauth/callback"],
+      "requiredScopes": ["crm.objects.contacts.read", "crm.objects.contacts.write", "crm.schemas.contacts.write", "crm.schemas.contacts.read"],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": ["https://api.hubapi.com", "https://bluesky-hubspot-be.vercel.app"],
+      "iframe": [],
+      "img": []
+    },
+    "support": {
+      "supportEmail": "sejalrparikh@gmail.com",
+      "documentationUrl": "https://hubspot.com",
+      "supportUrl": "https://hubspot.com",
+      "supportPhone": "+18005555555"
+    }
+  }
+}

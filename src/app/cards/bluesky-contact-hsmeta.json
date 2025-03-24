@@ -1,0 +1,12 @@
+{
+  "uid": "bluesky-contact-card",
+  "type": "card",
+  "config": {
+    "name": "BlueSky Profile",
+    "location": "crm.record.tab",
+    "entrypoint": "/app/cards/bluesky-contact.jsx",
+    "objectTypes": [
+      "contacts"
+    ]
+  }
+}
